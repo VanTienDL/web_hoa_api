@@ -40,6 +40,12 @@ jobs:
       run: |
         curl -fsSL https://raw.githubusercontent.com/koyeb/koyeb-cli/master/install.sh | sh
         export PATH=$HOME/.koyeb/bin:$PATH
+        
+    - name: 🔑 Cấu hình Koyeb CLI với API Token
+      env:
+        KOYEB_API_TOKEN: ${{ secrets.KOYEB_API_TOKEN }}
+      run: |
+        koyeb auth login --token $KOYEB_API_TOKEN
 
     - name: 🚀 Redeploy trên Koyeb bằng CLI
       env:
