@@ -39,7 +39,7 @@ jobs:
     - name: 🔧 Cài Koyeb CLI
       run: |
         curl -fsSL https://raw.githubusercontent.com/koyeb/koyeb-cli/master/install.sh | sh
-        sudo mv koyeb /usr/local/bin
+        export PATH=$HOME/.koyeb/bin:$PATH
 
     - name: 🚀 Redeploy trên Koyeb bằng CLI
       env:
