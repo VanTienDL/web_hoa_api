@@ -38,7 +38,8 @@ jobs:
 
     - name: 🧰 Cài Koyeb CLI
       run: |
-        curl -sSfL https://get.koyeb.com | sh
+        wget -qO koyeb.tar.gz https://github.com/koyeb/koyeb-cli/releases/latest/download/koyeb-linux-amd64.tar.gz
+        tar -xzf koyeb.tar.gz
         sudo mv koyeb /usr/local/bin
 
     - name: 🚀 Redeploy trên Koyeb
