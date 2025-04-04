@@ -36,15 +36,11 @@ jobs:
         docker build -t phuongdinhcute/web_hoa_api:latest .
         docker push phuongdinhcute/web_hoa_api:latest
 
-    - name: 🧰 Cài Koyeb CLI
-      run: |
-        wget -qO koyeb.tar.gz https://github.com/koyeb/koyeb-cli/releases/latest/download/koyeb-linux-amd64.tar.gz
-        tar -xzf koyeb.tar.gz
-        sudo mv koyeb /usr/local/bin
+    - name: 🚀 Redeploy trên Koyeb bằng API
+  env:
+    KOYEB_API_TOKEN: ${{ secrets.KOYEB_API_TOKEN }}
+  run: |
+    curl -X POST "https://app.koyeb.com/v1/services/web_hoa_client/deploy" \
+      -H "Authorization: Bearer $KOYEB_API_TOKEN" \
+      -H "Content-Type: application/json"
 
-    - name: 🚀 Redeploy trên Koyeb
-      env:
-        KOYEB_API_TOKEN: ${{ secrets.KOYEB_API_TOKEN }}
-      run: |
-        koyeb auth login --token "$KOYEB_API_TOKEN"
-        koyeb service redeploy web_hoa_client
