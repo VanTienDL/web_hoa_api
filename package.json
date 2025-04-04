@@ -1,6 +1,7 @@
 {
     "name": "flower-api",
     "version": "1.0.0",
+    "type": "module",
     "main": "server.js",
     "dependencies": {
         "@supabase/supabase-js": "^2.49.3",
