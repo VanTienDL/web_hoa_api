@@ -37,10 +37,11 @@ jobs:
         docker push phuongdinhcute/web_hoa_api:latest
 
     - name: 🚀 Redeploy trên Koyeb bằng API
-  env:
-    KOYEB_API_TOKEN: ${{ secrets.KOYEB_API_TOKEN }}
-  run: |
-    curl -X POST "https://app.koyeb.com/v1/services/web_hoa_client/deploy" \
-      -H "Authorization: Bearer $KOYEB_API_TOKEN" \
-      -H "Content-Type: application/json"
+      env:
+        KOYEB_API_TOKEN: ${{ secrets.KOYEB_API_TOKEN }}
+      run: |
+        curl -X POST "https://app.koyeb.com/v1/services/web_hoa_client/deploy" \
+          -H "Authorization: Bearer $KOYEB_API_TOKEN" \
+          -H "Content-Type: application/json"
+
 
