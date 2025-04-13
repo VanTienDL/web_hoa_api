@@ -10,15 +10,15 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const app = express();
 app.use(cors());
 
-app.get("/api/multiply", async (req, res) => {
-    let num = parseInt(req.query.num, 10);
+// app.get("/api/multiply", async (req, res) => {
+//     let num = parseInt(req.query.num, 10);
 
-    if (isNaN(num) || num <= 0) {
-        return res.status(400).json({ error: "Invalid number" });
-    }
+//     if (isNaN(num) || num <= 0) {
+//         return res.status(400).json({ error: "Invalid number" });
+//     }
 
-    res.json({ result: num * 50 });
-});
+//     res.json({ result: num * 50 });
+// });
 
 app.get("/api/flower", async (req, res) => {
     const id = req.query.id;
