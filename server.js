@@ -17,7 +17,7 @@ app.get("/api/multiply", async (req, res) => {
         return res.status(400).json({ error: "Invalid number" });
     }
 
-    res.json({ result: num * 50 });
+    res.json({ result: num * 100 });
 });
 
 app.get("/api/flower", async (req, res) => {
